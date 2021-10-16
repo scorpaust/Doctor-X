@@ -10,6 +10,9 @@ public class PlayerAnimation : MonoBehaviour
 
     private string currentAnim;
 
+	[SerializeField]
+	private RuntimeAnimatorController[] animControllers;
+
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
@@ -40,5 +43,17 @@ public class PlayerAnimation : MonoBehaviour
 		}
 
 		transform.localScale = currentScale;
+	}
+
+	public void ChangeAnimatorController(int controllerIndex)
+	{
+		anim.runtimeAnimatorController = animControllers[controllerIndex];
+
+		currentAnim = "";
+	}
+
+	public int GetNumberOfWeapons()
+	{
+		return animControllers.Length;
 	}
 }
