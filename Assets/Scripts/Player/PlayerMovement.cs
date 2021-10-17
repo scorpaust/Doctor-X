@@ -10,6 +10,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float minBoundX = -71f, maxBoundX = 71f, minBoundY = -3.3f, maxBoundY = 0f;
 
+    [SerializeField]
+    private float shootWaitTime = 0.5f;
+
+    [SerializeField]
+    private float walkWaitTime = 0.3f;
+
+    private float waitBeforeShooting;
+
+    private float waitBeforeWalking;
+
+    private bool canMove = true;
+
+    private PlayerShootingManager playerShootingManager;
+
     private Vector3 tempPos;
 
     private float xAxis, yAxis;
@@ -19,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 	private void Awake()
 	{
         playerAnimation = GetComponent<PlayerAnimation>();
+
+        playerShootingManager = GetComponent<PlayerShootingManager>();
 	}
 
 	private void Update()
@@ -28,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
         HandleAnimation();
 
         FlipSprite();
+
+        HandleShooting();
+
+        CheckToMove();
 	}
 
     private void HandleMovement()
@@ -35,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
         xAxis = Input.GetAxisRaw(TagManager.HORIZONTAL_AXIS);
 
         yAxis = Input.GetAxisRaw(TagManager.VERTICAL_AXIS);
+
+        if (!canMove)
+            return;
 
         tempPos = transform.position;
 
@@ -59,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleAnimation()
 	{
+
+        if (!canMove)
+            return;
+
         if (Mathf.Abs(xAxis) > 0 || Mathf.Abs(yAxis) > 0)
 		{
             playerAnimation.PlayAnimation(TagManager.WALK_ANIMATION_NAME);
@@ -77,5 +104,72 @@ public class PlayerMovement : MonoBehaviour
             playerAnimation.ChangeFacingDirection(false);
 	}
 
+    private void Shoot()
+	{
+        waitBeforeShooting = Time.time + shootWaitTime;
+
+        StopMovement(walkWaitTime);
+
+        playerAnimation.PlayAnimation(TagManager.SHOOT_ANIMATION_NAME);
+	}
+
+    private void StopMovement(float waitTime)
+	{
+        canMove = false;
+
+        waitBeforeWalking = Time.time + waitTime;
+	}
+
+    private void HandleShooting()
+	{
+        /*if (Input.GetKeyDown(KeyCode.K))
+		{
+            if (Time.time > waitBeforeShooting)
+			{
+                Shoot();
+
+                playerShootingManager.ShootBullet(transform.localScale.x);
+			}
+		} */
+        
+        if (playerShootingManager.GetWeaponType() == 1)
+		{
+            if (Input.GetKey(KeyCode.K))
+			{
+                Shoot();
+
+                playerShootingManager.ShootElectricity(true);
+			}
+            else if (Input.GetKeyUp(KeyCode.K))
+            {
+                playerShootingManager.ShootElectricity(false);
+
+                waitBeforeShooting = 0f;
+
+                canMove = true;
+            }
+        }
+        else
+		{
+            if (Input.GetKeyDown(KeyCode.K))
+			{
+                if (Time.time > waitBeforeShooting)
+				{
+                    Shoot();
+
+                    playerShootingManager.ShootBullet(transform.localScale.x);
+				}
+			}
+		}
+        
+	}
+
+    private void CheckToMove()
+	{
+        if (Time.time > waitBeforeWalking)
+		{
+            canMove = true;
+		}
+	}
 
 }

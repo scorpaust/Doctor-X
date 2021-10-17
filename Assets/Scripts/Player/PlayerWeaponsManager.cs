@@ -10,9 +10,15 @@ public class PlayerWeaponsManager : MonoBehaviour
 
     private int numberOfWeapons;
 
+	private PlayerShootingManager playerShootingManager;
+
 	private void Start()
 	{
 		playerAnim = GetComponent<PlayerAnimation>();
+
+		playerShootingManager = GetComponent<PlayerShootingManager>();
+
+		playerShootingManager.SetWeaponType(weaponIndex);
 
 		numberOfWeapons = playerAnim.GetNumberOfWeapons();
 
@@ -36,6 +42,10 @@ public class PlayerWeaponsManager : MonoBehaviour
 				weaponIndex = 0;
 
 			playerAnim.ChangeAnimatorController(weaponIndex);
+
+			playerShootingManager.SetWeaponType(weaponIndex);
+
+			Debug.Log("Weapon Type is: " + weaponIndex);
 		}
 	}
 }
