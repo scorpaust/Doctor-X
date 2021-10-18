@@ -10,6 +10,6 @@ public class Collector : MonoBehaviour
 			collision.gameObject.SetActive(false);
 
 		if (collision.CompareTag(TagManager.ENEMY_BULLET_TAG))
-			Destroy(collision.gameObject);
+			collision.gameObject.SetActive(false);
 	}
 }

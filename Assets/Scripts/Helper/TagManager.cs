@@ -10,6 +10,7 @@ public static class TagManager
     public static string ENEMY_BULLET_TAG = "EnemyBullet";
     public static string ELECTRIC_BULLET_TAG = "ElectricBullet";
     public static string HEALTH_FUEL_TAG = "HealthFuel";
+    public static string ENEMY_POOL_TAG = "EnemyBulletPool";
 
     public static string HORIZONTAL_AXIS = "Horizontal";
     public static string VERTICAL_AXIS = "Vertical";

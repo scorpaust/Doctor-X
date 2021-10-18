@@ -16,6 +16,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float walkWaitTime = 0.3f;
 
+    [SerializeField]
+    private Animator playerHurtFX;
+
+    [SerializeField]
+    private float damageColorWaitTime = 0.1f;
+
+    private float damageColorTimer;
+
+    private bool playerDamaged;
+
+    private Color tempColor;
+
     private float waitBeforeShooting;
 
     private float waitBeforeWalking;
@@ -30,15 +42,29 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAnimation playerAnimation;
 
+    private Health playerHealth;
+
+    private bool hasDied;
+
+    private SpriteRenderer sr;
+
 	private void Awake()
 	{
         playerAnimation = GetComponent<PlayerAnimation>();
 
         playerShootingManager = GetComponent<PlayerShootingManager>();
+
+        playerHealth = GetComponent<Health>();
+
+        sr = GetComponent<SpriteRenderer>();
 	}
 
 	private void Update()
 	{
+
+        if (hasDied)
+            return;
+
         HandleMovement();
 
         HandleAnimation();
@@ -48,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
         HandleShooting();
 
         CheckToMove();
+
+        ChangeDamageColor();
 	}
 
     private void HandleMovement()
@@ -172,4 +200,87 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+    private void RemovePlayerFromGame()
+	{
+        Destroy(gameObject);
+	}
+
+    private void PlayerReceivedDamage()
+	{
+        if (!playerDamaged)
+		{
+            tempColor = sr.material.color;
+
+            tempColor.a = 1f;
+            tempColor.r = 1f;
+            tempColor.g = 0f;
+            tempColor.b = 0f;
+
+            sr.material.SetColor("_Color", tempColor);
+
+            damageColorTimer = Time.time + damageColorWaitTime;
+
+            playerDamaged = true;
+
+            playerHurtFX.Play(TagManager.FX_ANIMATION_NAME);
+		}
+	}
+
+    private void ChangeDamageColor()
+	{
+        if (playerDamaged)
+		{
+            if (Time.time > damageColorTimer)
+			{
+                playerDamaged = false;
+
+				tempColor = sr.material.color;
+
+                tempColor.a = 1f;
+                tempColor.r = 1f;
+                tempColor.g = 1f;
+                tempColor.b = 1f;
+
+                sr.material.SetColor("_Color", tempColor);
+			}
+		}
+	}
+
+    public void TakeDamage(float amount)
+	{
+        if (hasDied)
+            return;
+
+        playerHealth.PlayerTakeDamage(amount);
+
+        PlayerReceivedDamage();
+
+        if (playerHealth.GetPlayerHealth() <= 0)
+		{
+            hasDied = true;
+
+            playerAnimation.PlayAnimation(TagManager.DEATH_ANIMATION_NAME);
+
+            Invoke("RemovePlayerFromGame", 3f);
+		}
+        else
+		{
+            PlayerReceivedDamage();
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag(TagManager.ENEMY_BULLET_TAG))
+		{
+            TakeDamage(20f);
+		}
+
+        if (collision.CompareTag(TagManager.HEALTH_FUEL_TAG))
+        {
+            playerHealth.IncreaseHealth(collision.GetComponent<HealthFuel>().GetHealthValue());
+
+            Destroy(collision.gameObject);
+        }
+    }
 }

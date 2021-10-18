@@ -1,12 +1,81 @@
 fileFormatVersion: 2
 guid: 3a76cdefbb610794d8df6e8061a4e3ac
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -5074204316161107556
+    second: health_fg
+  - first:
+      213: 915768003812156625
+    second: health_bg
+  - first:
+      213: -83225335990861157
+    second: weapon_4_icon
+  - first:
+      213: -2315737742614237131
+    second: weapon_3_icon
+  - first:
+      213: -1917645574668646267
+    second: weapon_2_icon
+  - first:
+      213: -8125560870492236162
+    second: weapon_1_icon
+  - first:
+      213: -6814301672687594596
+    second: doctor_icon
+  - first:
+      213: -7825288337103111108
+    second: selected_weapon_bg
+  - first:
+      213: 4259666535914144692
+    second: health_fuel_1
+  - first:
+      213: 5770847696828733620
+    second: health_fuel_2
+  - first:
+      213: -4503910754961811714
+    second: health_fuel_3
+  - first:
+      213: 4387293762826225777
+    second: health_fuel_4
+  - first:
+      213: -621690778083816895
+    second: UI Sprites_12
+  - first:
+      213: 1072105703770310030
+    second: Button_5
+  - first:
+      213: -5371407240911469768
+    second: Button_1
+  - first:
+      213: 2413030915260899845
+    second: Button_3
+  - first:
+      213: -8919507541095508280
+    second: UI Sprites_16
+  - first:
+      213: 6597463060837461814
+    second: Button_2
+  - first:
+      213: 6525293415449348026
+    second: Button_4
+  - first:
+      213: -7254957925098720924
+    second: UI Sprites_19
+  - first:
+      213: 6770741067423832806
+    second: UI Sprites_20
+  - first:
+      213: 459191411588462766
+    second: UI Sprites_21
+  - first:
+      213: -5610392004992081806
+    second: UI Sprites_22
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -35,13 +104,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +119,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -75,13 +144,532 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: health_fg
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1596
+        width: 536
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9996790f0ec499b0800000000000000
+      internalID: -5074204316161107556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_bg
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 1571
+        width: 618
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d464e3c52675bc00800000000000000
+      internalID: 915768003812156625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_4_icon
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1290
+        width: 207
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92c3f37ff258def0800000000000000
+      internalID: -83225335990861157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_3_icon
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 1313
+        width: 149
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530738adac8dcdfd0800000000000000
+      internalID: -2315737742614237131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_2_icon
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 1301
+        width: 157
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58886cc82872365e0800000000000000
+      internalID: -1917645574668646267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: weapon_1_icon
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1302
+        width: 157
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e761f7970753c3f80800000000000000
+      internalID: -8125560870492236162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: doctor_icon
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 1296
+        width: 148
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c931b1f7bbcbe61a0800000000000000
+      internalID: -6814301672687594596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: selected_weapon_bg
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1015
+        width: 150
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c36f1b7bdf66390800000000000000
+      internalID: -7825288337103111108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fuel_1
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1002
+        width: 151
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b308ce45206d1b30800000000000000
+      internalID: 4259666535914144692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fuel_2
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1004
+        width: 151
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b89b5ea76b261050800000000000000
+      internalID: 5770847696828733620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fuel_3
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1000
+        width: 151
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef69076f705ee71c0800000000000000
+      internalID: -4503910754961811714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: health_fuel_4
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1000
+        width: 151
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1784b82be6cc2ec30800000000000000
+      internalID: 4387293762826225777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 768
+        width: 578
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a8d2cf78f4f57f0800000000000000
+      internalID: -621690778083816895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_5
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 749
+        width: 275
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8546e21572e0ee00800000000000000
+      internalID: 1072105703770310030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 545
+        width: 276
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 833c285c29de475b0800000000000000
+      internalID: -5371407240911469768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_3
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 554
+        width: 275
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502692825decc7120800000000000000
+      internalID: 2413030915260899845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 566
+        width: 217
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c69591262b873480800000000000000
+      internalID: -8919507541095508280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 378
+        width: 276
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63f6affe2b5ee8b50800000000000000
+      internalID: 6597463060837461814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_4
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 381
+        width: 277
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab7cd03f9cf7e8a50800000000000000
+      internalID: 6525293415449348026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_19
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 310
+        width: 160
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 461f51e9436315b90800000000000000
+      internalID: -7254957925098720924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_20
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 728
+        height: 310
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea52fdb02186fd50800000000000000
+      internalID: 6770741067423832806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_21
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 42
+        width: 108
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8f3abe7206f5600800000000000000
+      internalID: 459191411588462766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Sprites_22
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 42
+        width: 108
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27061c35232e322b0800000000000000
+      internalID: -5610392004992081806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b50a0719018d3a847800caa6f1110479
     internalID: 0
     vertices: []
     indices: 

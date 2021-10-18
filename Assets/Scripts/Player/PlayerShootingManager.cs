@@ -13,6 +13,9 @@ public class PlayerShootingManager : MonoBehaviour
     [SerializeField]
     private GameObject electricityBullet;
 
+    [SerializeField]
+    private Animator bulletFX_1, bulletFX_2;
+
     private int weaponType;
 
     private BulletPool bulletPool;
@@ -68,6 +71,20 @@ public class PlayerShootingManager : MonoBehaviour
 
         if (facingLeftSide < 0)
             currentBullet.SetNegativeSpeed();
+
+        if (weaponType == 0 || weaponType == 3)
+		{
+            bulletFX_1.gameObject.transform.position = bulletSpawnPos[weaponType].position;
+
+            bulletFX_1.Play(TagManager.FX_ANIMATION_NAME);
+        }
+        else if (weaponType == 2)
+		{
+            bulletFX_2.gameObject.transform.position = bulletSpawnPos[weaponType].position;
+
+            bulletFX_2.Play(TagManager.FX_ANIMATION_NAME);
+        }
+            
             
 	}
 
