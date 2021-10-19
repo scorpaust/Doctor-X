@@ -104,7 +104,6 @@ public class Enemy : MonoBehaviour
             enemyAnimation.PlayAnimation(TagManager.ATTACK_ANIMATION_NAME);
 
         if (enemyState == EnemyState.Death)
-            enemyDead = true;
             enemyAnimation.PlayAnimation(TagManager.DEATH_ANIMATION_NAME);
 
         if (enemyState == EnemyState.Electric)
@@ -233,15 +232,26 @@ public class Enemy : MonoBehaviour
 
         if (enemyHealth.GetEnemyHealth() <= 0)
 		{
-            GetComponent<Collider2D>().enabled = false;
-
-            enemyState = EnemyState.Death;
-
-            enemyDead = true;
-
-            Invoke("RemoveEnemyFromGame", 2f);
+            StartCoroutine(EnemyDied());
 		}
 	}
+
+    private IEnumerator EnemyDied()
+	{
+        GetComponent<Collider2D>().enabled = false;
+
+        enemyState = EnemyState.Death;
+
+        yield return new WaitForEndOfFrame();
+
+        enemyDead = true;
+
+        yield return new WaitForSeconds(2f);
+
+        RemoveEnemyFromGame();
+
+        UIController.instance.SetKillScoreText();
+    }
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{

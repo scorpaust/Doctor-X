@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthFuel : MonoBehaviour
 {
     [SerializeField]
-    private float minDestroyTime = 1f, maxDestroyTime = 6f;
+    private float minDestroyTime = 2f, maxDestroyTime = 6f;
 
     [SerializeField]
     private float healthValue = 20f;

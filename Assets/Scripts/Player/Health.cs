@@ -14,9 +14,11 @@ public class Health : MonoBehaviour
 
 	private void Start()
 	{
+        playerHealth = playerMaxHealth;
+
         if (gameObject.CompareTag(TagManager.PLAYER_TAG))
 		{
-
+            UIController.instance.InitializeHealthSlider(0, playerHealth, playerHealth);
 		}
 	}
 
@@ -33,6 +35,8 @@ public class Health : MonoBehaviour
     public void PlayerTakeDamage(float amount)
 	{
         playerHealth -= amount;
+
+        UIController.instance.SetHeathSliderValue(playerHealth);
 	}
 
     public float GetPlayerHealth()
@@ -46,5 +50,7 @@ public class Health : MonoBehaviour
 
         if (playerHealth > playerMaxHealth)
             playerHealth = playerMaxHealth;
+
+        UIController.instance.SetHeathSliderValue(playerHealth);
 	}
 }
