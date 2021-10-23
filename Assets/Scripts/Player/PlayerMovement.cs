@@ -224,6 +224,8 @@ public class PlayerMovement : MonoBehaviour
             playerDamaged = true;
 
             playerHurtFX.Play(TagManager.FX_ANIMATION_NAME);
+
+            SoundManager.instance.PlayerHurt();
 		}
 	}
 

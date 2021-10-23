@@ -35,6 +35,8 @@ public class MainMenuController : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+
+		MouseManager.instance.ShowMouse();
 	}
 
 	private void Start()
@@ -43,6 +45,8 @@ public class MainMenuController : MonoBehaviour
 			OpenInputUsernamePanel();
 
 		DataManager.instance.LoadPlayerStats();
+
+		SoundManager.instance.PlayBGMusic(0);
 	}
 
 	private void CloseAllPanels()
@@ -76,15 +80,23 @@ public class MainMenuController : MonoBehaviour
 
 	public void PlayGame()
 	{
+		SoundManager.instance.PlayClickSound();
+
 		GameManager.instance.SetGameState(GameState.GAMEPLAY);
 
 		GameManager.instance.kills = 0;
 
 		SceneManager.LoadScene(1);
+
+		MouseManager.instance.HideMouse();
+
+		SoundManager.instance.PlayBGMusic(1);
 	}
 
 	public void ShowSortedScoreboard()
-	{		
+	{
+		SoundManager.instance.PlayClickSound();
+
 		UpdateScoreboard();
 
 		CloseAllPanels();
@@ -152,6 +164,8 @@ public class MainMenuController : MonoBehaviour
 
 	public void BackToMainMenu()
 	{
+		SoundManager.instance.PlayClickSound();
+
 		CloseAllPanels();
 
 		buttonsPanel.SetActive(true);
@@ -159,6 +173,8 @@ public class MainMenuController : MonoBehaviour
 
 	public void QuitGame()
 	{
+		SoundManager.instance.PlayClickSound();
+
 		DataManager.instance.SavePlayerStats();
 
 		Application.Quit();

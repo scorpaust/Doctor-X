@@ -84,13 +84,29 @@ public class PlayerShootingManager : MonoBehaviour
 
             bulletFX_2.Play(TagManager.FX_ANIMATION_NAME);
         }
-            
-            
-	}
+        
+        if (weaponType == 0)
+		{
+            SoundManager.instance.Weapon_1_Shoot();
+		}
+
+        if (weaponType == 2)
+        {
+            SoundManager.instance.Weapon_3_Shoot();
+        }
+
+        if (weaponType == 3)
+        {
+            SoundManager.instance.Weapon_4_Shoot();
+        }
+
+    }
 
     public void ShootElectricity(bool activateWeapon)
 	{
         electricityBullet.SetActive(activateWeapon);
+
+        SoundManager.instance.Weapon_2_Shoot(activateWeapon);
 	}
 
 }

@@ -29,6 +29,8 @@ public class GameOverUIController : MonoBehaviour
 	{
 		GameManager.instance.SetGameState(GameState.GAMEOVER);
 
+		MouseManager.instance.ShowMouse();
+
 		gameOverCanvas.enabled = true;
 
 		finalScoreTxt.text = "Score: " + UIController.instance.GetKillsCount();
@@ -47,17 +49,27 @@ public class GameOverUIController : MonoBehaviour
 
 	public void PlayAgain()
 	{
+		SoundManager.instance.PlayClickSound();
+
 		GameManager.instance.SetGameState(GameState.GAMEPLAY);
 
 		GameManager.instance.kills = 0;
 
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+		SoundManager.instance.PlayBGMusic(1);
 	}
 
 	public void BackToMainMenu()
 	{
+		SoundManager.instance.PlayClickSound();
+
 		GameManager.instance.SetGameState(GameState.MAINMENU);
 
 		SceneManager.LoadScene(0);
+
+		MouseManager.instance.ShowMouse();
+
+		SoundManager.instance.PlayBGMusic(0);
 	}
 }

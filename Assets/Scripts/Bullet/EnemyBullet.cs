@@ -25,11 +25,11 @@ public class EnemyBullet : MonoBehaviour
 	{
 		if (play_sound1)
 		{
-
+			SoundManager.instance.Enemy_Weapon_1_Shoot();
 		}
 		else
 		{
-
+			SoundManager.instance.Enemy_Weapon_2_Shoot();
 		}
 	}
 
