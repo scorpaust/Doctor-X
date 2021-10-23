@@ -66,13 +66,22 @@ public class Enemy : MonoBehaviour
 
 	private void Awake()
 	{
-        playerTarget = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
+        if (GameManager.instance.GetGameState() != GameState.GAMEOVER)
+		{
+            playerTarget = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
 
-        enemyAnimation = GetComponent<PlayerAnimation>();
+            if (playerTarget && GameManager.instance.GetGameState() == GameState.GAMEPLAY)
+            {
+                playerTarget = GameObject.FindGameObjectWithTag(TagManager.PLAYER_TAG).transform;
 
-        enemyBulletPool = GameObject.FindGameObjectWithTag(TagManager.ENEMY_POOL_TAG).GetComponent<EnemyBulletPool>();
+                enemyAnimation = GetComponent<PlayerAnimation>();
 
-        enemyHealth = GetComponent<Health>();
+                enemyBulletPool = GameObject.FindGameObjectWithTag(TagManager.ENEMY_POOL_TAG).GetComponent<EnemyBulletPool>();
+
+                enemyHealth = GetComponent<Health>();
+            }
+        }
+           
 	}
 
 	// Start is called before the first frame update
@@ -97,23 +106,27 @@ public class Enemy : MonoBehaviour
 
     private void AnimateEnemy()
 	{
-        if (enemyState == EnemyState.Idle)
-            enemyAnimation.PlayAnimation(TagManager.IDLE_ANIMATION_NAME);
+        if (playerTarget && GameManager.instance.GetGameState() == GameState.GAMEPLAY)
+		{
+            if (enemyState == EnemyState.Idle)
+                enemyAnimation.PlayAnimation(TagManager.IDLE_ANIMATION_NAME);
 
-        if (enemyState == EnemyState.Attack)
-            enemyAnimation.PlayAnimation(TagManager.ATTACK_ANIMATION_NAME);
+            if (enemyState == EnemyState.Attack)
+                enemyAnimation.PlayAnimation(TagManager.ATTACK_ANIMATION_NAME);
 
-        if (enemyState == EnemyState.Death)
-            enemyAnimation.PlayAnimation(TagManager.DEATH_ANIMATION_NAME);
+            if (enemyState == EnemyState.Death)
+                enemyAnimation.PlayAnimation(TagManager.DEATH_ANIMATION_NAME);
 
-        if (enemyState == EnemyState.Electric)
-            enemyAnimation.PlayAnimation(TagManager.ELECTRIC_ANIMATION_NAME);
+            if (enemyState == EnemyState.Electric)
+                enemyAnimation.PlayAnimation(TagManager.ELECTRIC_ANIMATION_NAME);
 
-        if (enemyState == EnemyState.Hit)
-            enemyAnimation.PlayAnimation(TagManager.HIT_ANIMATION_NAME);
+            if (enemyState == EnemyState.Hit)
+                enemyAnimation.PlayAnimation(TagManager.HIT_ANIMATION_NAME);
 
-        if (enemyState == EnemyState.Walk)
-            enemyAnimation.PlayAnimation(TagManager.WALK_ANIMATION_NAME);
+            if (enemyState == EnemyState.Walk)
+                enemyAnimation.PlayAnimation(TagManager.WALK_ANIMATION_NAME);
+        }
+ 
     }
 
     private void SearchForPlayer()
@@ -276,6 +289,7 @@ public class Enemy : MonoBehaviour
 
     private void RemoveEnemyFromGame()
 	{
+        EnemySpawner.instance.RemoveSpawnedEnemy(gameObject);
         Destroy(gameObject);
 	}
 }

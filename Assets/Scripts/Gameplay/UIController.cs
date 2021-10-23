@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
             instance = this;
 	}
 
-    public void InitializeHealthSlider(float minHealthValue, float maxHealthValue, float currentHealthValue)
+	public void InitializeHealthSlider(float minHealthValue, float maxHealthValue, float currentHealthValue)
 	{
         playerHealthSlider.minValue = minHealthValue;
 
@@ -57,6 +57,8 @@ public class UIController : MonoBehaviour
         killScoreCount++;
 
         killScoreTxt.text = "Kills: " + killScoreCount;
+
+        GameManager.instance.kills = killScoreCount;
 	}
 
     public int GetKillsCount()

@@ -202,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RemovePlayerFromGame()
 	{
+        GameOverUIController.instance.GameOver();
         Destroy(gameObject);
 	}
 

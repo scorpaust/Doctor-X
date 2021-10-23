@@ -45,8 +45,6 @@ public class PlayerWeaponsManager : MonoBehaviour
 
 			playerShootingManager.SetWeaponType(weaponIndex);
 
-			Debug.Log("Weapon Type is: " + weaponIndex);
-
 			UIController.instance.ChangeWeaponIcon();
 		}
 	}
